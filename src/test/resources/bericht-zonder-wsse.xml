@@ -1,0 +1,20 @@
+<soapenv:Envelope xmlns:add="http://www.w3.org/2005/08/addressing"
+                  xmlns:ns="http://schemas.kvk.nl/schemas/hrip/generiekproduct/2013/01"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <add:To>http://es.kvk.nl/KVK-DataserviceCT/2012/10</add:To>
+        <add:Action>http://es.kvk.nl/genereerProduct</add:Action>
+        <add:MessageID>uuid://a175ca70-5cee-11e3-949a-0800200c9a66</add:MessageID>
+    </soapenv:Header>
+    <soapenv:Body>
+        <ns:genereerProduct>
+            <ns:productRequest>
+                <ns:klantreferentie>QW43BA12</ns:klantreferentie>
+                <ns:productnaam>Vestiging</ns:productnaam>
+                <ns:productsleutel>
+                    <ns:vestigingsnummer>000000353833</ns:vestigingsnummer>
+                </ns:productsleutel>
+            </ns:productRequest>
+        </ns:genereerProduct>
+    </soapenv:Body>
+</soapenv:Envelope>

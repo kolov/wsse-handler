@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:add="http://www.w3.org/2005/08/addressing"
+                  xmlns:ns="http://schemas.kvk.nl/schemas/hrip/generiekproduct/2013/01"
+                  xmlns:oas="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                       xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken wsu:Id="UsernameToken-78983F95BD7792ACC714223448963981">
+                <wsse:Username>powerhouse</wsse:Username>
+                <wsse:Password
+                        Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">
+                    /mGNs12LO5CBB2xVU5Rlz06BETM=
+                </wsse:Password>
+                <wsse:Nonce
+                        EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">
+                    FHfHLITtkhH+Bc6QDPrSKw==
+                </wsse:Nonce>
+                <wsu:Created>2015-01-27T07:48:16.396Z</wsu:Created>
+            </wsse:UsernameToken>
+        </wsse:Security>
+        <add:To>http://es.kvk.nl/KVK-DataserviceCT/2012/10</add:To>
+        <add:Action>http://es.kvk.nl/genereerProduct</add:Action>
+        <add:MessageID>uuid://a175ca70-5cee-11e3-949a-0800200c9a66</add:MessageID>
+    </soapenv:Header>
+    <soapenv:Body>
+        <ns:genereerProduct>
+            <ns:productRequest>
+                <ns:klantreferentie>QW43BA12</ns:klantreferentie>
+                <ns:productnaam>Vestiging</ns:productnaam>
+                <ns:productsleutel>
+                    <ns:vestigingsnummer>000000353833</ns:vestigingsnummer>
+                </ns:productsleutel>
+            </ns:productRequest>
+        </ns:genereerProduct>
+    </soapenv:Body>
+</soapenv:Envelope>
