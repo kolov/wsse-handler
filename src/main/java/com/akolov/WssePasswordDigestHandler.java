@@ -9,20 +9,11 @@ import javax.xml.soap.SOAPEnvelope;
 import javax.xml.soap.SOAPHeader;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.soap.SOAPPart;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
-import java.io.ByteArrayOutputStream;
 import java.util.Set;
 
-/**
- * Created by assen on 27/01/15.
- */
 public class WssePasswordDigestHandler implements SOAPHandler<SOAPMessageContext> {
 
 
@@ -58,13 +49,10 @@ public class WssePasswordDigestHandler implements SOAPHandler<SOAPMessageContext
             }
 
         } catch (Exception ex) {
-
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
-
         return true;
     }
-
 
 
     @Override
@@ -77,33 +65,4 @@ public class WssePasswordDigestHandler implements SOAPHandler<SOAPMessageContext
 
     }
 
-//    public void testUsernameTokenDigest() throws Exception {
-//        WSSecUsernameToken builder = new WSSecUsernameToken();
-//        builder.setUserInfo("wernerd", "verySecret");
-//
-//        Document doc = SOAPUtil.toSOAPPart(SOAPUtil.SAMPLE_SOAP_MSG);
-//        WSSecHeader secHeader = new WSSecHeader();
-//        secHeader.insertSecurityHeader(doc);
-//        Document signedDoc = builder.build(doc, secHeader);
-//
-//        if (LOG.isDebugEnabled()) {
-//            LOG.debug("Message with UserNameToken PW Digest:");
-//            String outputString =
-//                XMLUtils.PrettyDocumentToString(signedDoc);
-//            LOG.debug(outputString);
-//        }
-//        LOG.info("After adding UsernameToken PW Digest....");
-//
-//        List<WSSecurityEngineResult> results = verify(signedDoc);
-//        WSSecurityEngineResult actionResult =
-//            WSSecurityUtil.fetchActionResult(results, WSConstants.UT);
-//        UsernameToken receivedToken =
-//            (UsernameToken) actionResult.get(WSSecurityEngineResult.TAG_USERNAME_TOKEN);
-//        assertTrue(receivedToken != null);
-//
-//        UsernameToken clone =
-//            new UsernameToken(receivedToken.getElement(), false, new BSPEnforcer());
-//        assertTrue(clone.equals(receivedToken));
-//        assertTrue(clone.hashCode() == receivedToken.hashCode());
-//    }
 }
