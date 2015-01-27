@@ -1,6 +1,8 @@
-package com.akolov;
+package com.akolov.wss;
 
+import com.akolov.wsse.WssePasswordDigestHandler;
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -37,7 +39,10 @@ public class WssePasswordDigestHandlerTest extends TestCase {
         WssePasswordDigestHandler handler = new WssePasswordDigestHandler();
         handler.handleMessage(ctx);
 
-        System.out.println(getSOAPMessageAsString(soapMessage));
+        String messageAsString = getSOAPMessageAsString(soapMessage);
+        System.out.println(messageAsString);
+        Assert.assertTrue(messageAsString.contains(":Created>"));
+        Assert.assertTrue(messageAsString.contains(":Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest"));
 
     }
 

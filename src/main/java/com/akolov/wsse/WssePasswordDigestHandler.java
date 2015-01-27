@@ -1,4 +1,4 @@
-package com.akolov;
+package com.akolov.wsse;
 
 import org.apache.ws.security.WSConstants;
 import org.apache.ws.security.message.WSSecHeader;
